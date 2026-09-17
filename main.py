@@ -63,7 +63,7 @@ class SpeechBubble(QWidget):
     def __init__(self, text):
         super().__init__()
 
-        self.setFixedSize(210, 78)
+        self.setFixedSize(210, 58)
 
         self.label = QLabel(text, self)
         self.label.setAlignment(Qt.AlignCenter)
@@ -78,7 +78,7 @@ class SpeechBubble(QWidget):
         """)
 
         bubble_layout = QHBoxLayout(self)
-        bubble_layout.setContentsMargins(18, 10, 12, 14)
+        bubble_layout.setContentsMargins(18, 6, 12,8)
         bubble_layout.addWidget(self.label)
 
     def paintEvent(self, event):
@@ -86,7 +86,7 @@ class SpeechBubble(QWidget):
         painter.setRenderHint(QPainter.Antialiasing)
 
         painter.setPen(Qt.NoPen)
-        painter.setBrush(QColor("white"))
+        painter.setBrush(QColor("lightblue"))
 
         path = QPainterPath()
 
@@ -95,9 +95,9 @@ class SpeechBubble(QWidget):
             12,
             4,
             self.width() - 20,
-            self.height() - 18,
-            26,
-            26
+            self.height() - 12,
+            22,
+            22
         )
 
         # Tail on LEFT side, pointing toward the pet
@@ -180,8 +180,8 @@ pet_path = resource_path("assets/pet.png")
 
 pet_image = QPixmap(pet_path)
 
-PET_WIDTH = 160
-PET_HEIGHT = 200
+PET_WIDTH = 180
+PET_HEIGHT = 220
 
 pet_image = pet_image.scaled(
     PET_WIDTH,
